@@ -30,44 +30,59 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     overflow-x: hidden;
   }
 
-  /* ── Blurred background ── */
+  /* ── Full-screen blurred bg (visible on desktop around the card) ── */
   .bg-layer {
     position: fixed;
     inset: 0;
     z-index: 0;
-    background: url('bg.png') center top / cover no-repeat;
-    filter: blur(22px) brightness(0.3) saturate(1.2);
-    transform: scale(1.15);
+    background: url('bg.png') center center / cover no-repeat;
+    filter: blur(30px) brightness(0.25) saturate(1.3);
+    transform: scale(1.2);
   }
 
   .bg-overlay {
     position: fixed;
     inset: 0;
     z-index: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(11,23,49,0.2) 0%,
-      rgba(11,23,49,0.5) 35%,
-      rgba(11,23,49,0.75) 65%,
-      rgba(11,23,49,0.9) 100%
-    );
+    background: radial-gradient(ellipse at center top, rgba(11,23,49,0.3) 0%, rgba(11,23,49,0.7) 100%);
   }
 
+  /* ── Phone-frame container ── */
   .container {
     position: relative;
     z-index: 1;
     width: 100%;
     max-width: 420px;
-    padding: 0 0 60px;
+    min-height: 100vh;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  /* Desktop: float as a phone card with rounded corners & shadow */
+  @media (min-width: 520px) {
+    body {
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      min-height: auto;
+      border-radius: 28px;
+      box-shadow:
+        0 25px 80px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(255,255,255,0.04);
+      margin: 0 auto;
+    }
   }
 
   /* ── Hero Header ── */
   .hero {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+    position: relative;
   }
 
   .hero-image {
@@ -84,17 +99,22 @@
     display: block;
   }
 
-  /* Fade bottom of image into background */
+  /* Soft fade: image bottom dissolves into bg */
   .hero-image::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 50%;
+    height: 65%;
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(11,23,49,0.4) 40%,
-      rgba(11,23,49,0.85) 75%,
+      transparent 15%,
+      rgba(11,23,49,0.08) 30%,
+      rgba(11,23,49,0.2) 42%,
+      rgba(11,23,49,0.4) 55%,
+      rgba(11,23,49,0.65) 68%,
+      rgba(11,23,49,0.85) 80%,
+      var(--bg) 92%,
       var(--bg) 100%
     );
     pointer-events: none;
@@ -102,7 +122,7 @@
 
   .hero-text {
     position: relative;
-    margin-top: -60px;
+    margin-top: -72px;
     z-index: 2;
     padding: 0 24px;
   }
@@ -113,7 +133,7 @@
     font-weight: 700;
     letter-spacing: 0.5px;
     margin-bottom: 8px;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
     line-height: 1.3;
   }
 
@@ -125,26 +145,23 @@
     margin-bottom: 16px;
   }
 
-  /* ── Social icons row (in header) ── */
+  /* ── Social icons ── */
   .social-row {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 0;
   }
 
   .social-dot {
     width: 36px; height: 36px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: rgba(251,253,240,0.6);
+    color: rgba(251,253,240,0.55);
     transition: all 0.3s ease;
   }
 
@@ -157,13 +174,24 @@
   .social-dot.sd-wa:hover  { color: #25d366; border-color: #25d366; background: rgba(37,211,102,0.12); }
   .social-dot.sd-xhs:hover { color: #ff2442; border-color: #ff2442; background: rgba(255,36,66,0.12); }
 
+  .social-dot.sd-xhs img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+  }
+  .social-dot.sd-xhs:hover img {
+    opacity: 1;
+  }
+
   /* ── Link Cards ── */
   .links {
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 0 20px;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
 
   .link-card {
@@ -172,8 +200,6 @@
     gap: 16px;
     padding: 18px 20px;
     background: var(--surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 14px;
     text-decoration: none;
@@ -206,7 +232,7 @@
   /* Coming soon */
   .link-card.coming-soon {
     cursor: default;
-    opacity: 0.65;
+    opacity: 0.6;
   }
   .link-card.coming-soon:hover, .link-card.coming-soon:active {
     transform: none;
@@ -286,7 +312,7 @@
   /* ── Footer ── */
   .footer {
     text-align: center;
-    padding: 8px 24px 0;
+    padding: 0 24px 36px;
   }
 
   .footer .tagline {
@@ -294,7 +320,7 @@
     color: var(--text-dim);
     letter-spacing: 3px;
     text-transform: uppercase;
-    opacity: 0.5;
+    opacity: 0.45;
   }
 
   /* ── Animations ── */
@@ -323,7 +349,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 999;
-    opacity: 0.025;
+    opacity: 0.02;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 180px;
@@ -338,7 +364,7 @@
 
 <div class="container">
 
-  <!-- ── Hero Header ── -->
+  <!-- ── Hero ── -->
   <div class="hero">
     <div class="hero-image">
       <img src="logo.jpg" alt="Deep Build Marketing">
@@ -346,8 +372,6 @@
     <div class="hero-text">
       <h1>Deep Build Marketing</h1>
       <p>品牌策略 | 内容创意 | 广告增长<br>一站式品牌叙事与增长解决方案</p>
-
-      <!-- Social icons -->
       <div class="social-row">
         <a class="social-dot sd-fb" href="https://www.facebook.com/profile.php?id=61588071255831" target="_blank" rel="noopener" aria-label="Facebook">
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -359,7 +383,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.104 1.519 5.832L0 24l6.336-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.98 0-3.818-.563-5.382-1.532l-.386-.23-3.997 1.048 1.067-3.898-.252-.4A9.789 9.789 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
         </a>
         <a class="social-dot sd-xhs" href="https://xhslink.com/m/7bGWhxXdJDq" target="_blank" rel="noopener" aria-label="Xiaohongshu">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M2 2h8.5v7H7.25L10.5 20h-4L3.25 9H2V2zm11 0h4l3.25 11H22v7h-8.5v-7h3.25L13 2z"/></svg>
+          <img src="xhs-icon.png" alt="小红书">
         </a>
       </div>
     </div>
@@ -367,8 +391,6 @@
 
   <!-- ── Link Cards ── -->
   <div class="links">
-
-    <!-- 1. Portfolio -->
     <a class="link-card" href="https://drive.google.com/file/d/1yUYp22Klznhv8qjd2qMdPfB5GS9dV2d1/view?usp=sharing" target="_blank" rel="noopener">
       <div class="link-icon icon-portfolio">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -382,7 +404,6 @@
       </div>
     </a>
 
-    <!-- 2. Service & Pricing -->
     <a class="link-card" href="https://joanntay.github.io/Deep-Build-Menu/" target="_blank" rel="noopener">
       <div class="link-icon icon-pricing">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
@@ -396,7 +417,6 @@
       </div>
     </a>
 
-    <!-- 3. Video Showreel -->
     <a class="link-card" href="https://drive.google.com/drive/folders/1nQTTsPD9B6xZMYNkkoCuO-cN9_XUyJZa?usp=sharing" target="_blank" rel="noopener">
       <div class="link-icon icon-video">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -410,7 +430,6 @@
       </div>
     </a>
 
-    <!-- 4. Website — Coming Soon -->
     <div class="link-card coming-soon">
       <div class="link-icon icon-website">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
@@ -421,10 +440,8 @@
       </div>
       <div class="coming-badge">Coming Soon</div>
     </div>
-
   </div>
 
-  <!-- ── Footer ── -->
   <div class="footer">
     <div class="tagline">Marketing · Branding · Design</div>
   </div>
