@@ -10,7 +10,6 @@
   :root {
     --bg: #0b1731;
     --surface: rgba(11,23,49,0.72);
-    --surface-solid: #112044;
     --border: rgba(250,204,21,0.08);
     --text: #FBFDF0;
     --text-dim: rgba(251,253,240,0.5);
@@ -18,7 +17,6 @@
     --accent-glow: rgba(250,204,21,0.12);
     --card-hover: rgba(21,39,80,0.85);
     --blue: #2563EB;
-    --navy: #1E40AF;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -28,13 +26,10 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     overflow-x: hidden;
   }
 
-  /* ── Full-screen blurred bg (visible on desktop around the card) ── */
+  /* ── Full-page blurred bg ── */
   .bg-layer {
     position: fixed;
     inset: 0;
@@ -43,53 +38,36 @@
     filter: blur(30px) brightness(0.25) saturate(1.3);
     transform: scale(1.2);
   }
-
   .bg-overlay {
     position: fixed;
     inset: 0;
     z-index: 0;
-    background: radial-gradient(ellipse at center top, rgba(11,23,49,0.3) 0%, rgba(11,23,49,0.7) 100%);
+    background: radial-gradient(ellipse at center top, rgba(11,23,49,0.25) 0%, rgba(11,23,49,0.75) 100%);
   }
 
-  /* ── Phone-frame container ── */
-  .container {
+  /* ── Page wrapper ── */
+  .page {
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: 420px;
     min-height: 100vh;
-    background: var(--bg);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* Desktop: float as a phone card with rounded corners & shadow */
-  @media (min-width: 520px) {
-    body {
-      align-items: center;
-      padding: 40px 20px;
-    }
-    .container {
-      min-height: auto;
-      border-radius: 28px;
-      box-shadow:
-        0 25px 80px rgba(0,0,0,0.5),
-        0 0 0 1px rgba(255,255,255,0.04);
-      margin: 0 auto;
-    }
-  }
-
-  /* ── Hero Header ── */
+  /* ── Hero ── */
   .hero {
+    width: 100%;
     text-align: center;
-    margin-bottom: 28px;
     position: relative;
   }
 
   .hero-image {
     width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    position: relative;
   }
 
   .hero-image img {
@@ -97,49 +75,33 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      black 0%,
-      black 35%,
-      rgba(0,0,0,0.7) 55%,
-      rgba(0,0,0,0.3) 72%,
-      rgba(0,0,0,0.08) 85%,
-      transparent 95%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      black 0%,
-      black 35%,
-      rgba(0,0,0,0.7) 55%,
-      rgba(0,0,0,0.3) 72%,
-      rgba(0,0,0,0.08) 85%,
-      transparent 95%
-    );
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.2) 75%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 0%, black 30%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.2) 75%, transparent 92%);
   }
 
   .hero-text {
     position: relative;
-    margin-top: -80px;
+    margin-top: -90px;
     z-index: 2;
     padding: 0 24px;
   }
 
   .hero-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-shadow: 0 2px 20px rgba(0,0,0,0.6);
     line-height: 1.3;
   }
 
   .hero-text p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-dim);
     letter-spacing: 0.4px;
-    line-height: 1.6;
-    margin-bottom: 16px;
+    line-height: 1.7;
+    margin-bottom: 18px;
   }
 
   /* ── Social icons ── */
@@ -147,10 +109,11 @@
     display: flex;
     justify-content: center;
     gap: 12px;
+    margin-bottom: 36px;
   }
 
   .social-dot {
-    width: 36px; height: 36px;
+    width: 38px; height: 38px;
     border-radius: 50%;
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.1);
@@ -161,41 +124,35 @@
     color: rgba(251,253,240,0.55);
     transition: all 0.3s ease;
   }
-
-  .social-dot:hover {
-    transform: scale(1.12);
-  }
-
+  .social-dot:hover { transform: scale(1.12); }
   .social-dot.sd-fb:hover  { color: #1877f2; border-color: #1877f2; background: rgba(24,119,242,0.12); }
   .social-dot.sd-ig:hover  { color: #e1306c; border-color: #e1306c; background: rgba(225,48,108,0.12); }
   .social-dot.sd-wa:hover  { color: #25d366; border-color: #25d366; background: rgba(37,211,102,0.12); }
-  .social-dot.sd-xhs:hover { color: #ff2442; border-color: #ff2442; background: rgba(255,36,66,0.12); }
-
+  .social-dot.sd-xhs:hover { border-color: #ff2442; background: rgba(255,36,66,0.12); }
   .social-dot.sd-xhs img {
-    width: 20px;
-    height: 20px;
+    width: 22px; height: 22px;
     object-fit: contain;
     opacity: 0.55;
     transition: opacity 0.3s ease;
   }
-  .social-dot.sd-xhs:hover img {
-    opacity: 1;
-  }
+  .social-dot.sd-xhs:hover img { opacity: 1; }
 
   /* ── Link Cards ── */
   .links {
+    width: 100%;
+    max-width: 560px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 0 20px;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 
   .link-card {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 18px 20px;
+    padding: 20px 22px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
@@ -205,7 +162,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .link-card::before {
     content: '';
     position: absolute;
@@ -214,93 +170,50 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-
   .link-card:hover, .link-card:active {
     background: var(--card-hover);
     border-color: rgba(250,204,21,0.25);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
   }
-
-  .link-card:hover::before, .link-card:active::before {
-    opacity: 1;
-  }
+  .link-card:hover::before, .link-card:active::before { opacity: 1; }
 
   /* Coming soon */
-  .link-card.coming-soon {
-    cursor: default;
-    opacity: 0.6;
-  }
+  .link-card.coming-soon { cursor: default; opacity: 0.6; }
   .link-card.coming-soon:hover, .link-card.coming-soon:active {
-    transform: none;
-    box-shadow: none;
-    background: var(--surface);
-    border-color: var(--border);
+    transform: none; box-shadow: none; background: var(--surface); border-color: var(--border);
   }
-  .link-card.coming-soon:hover::before, .link-card.coming-soon:active::before {
-    opacity: 0;
-  }
+  .link-card.coming-soon:hover::before, .link-card.coming-soon:active::before { opacity: 0; }
 
   .coming-badge {
-    position: relative;
-    z-index: 1;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    position: relative; z-index: 1;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--accent);
     background: rgba(250,204,21,0.1);
-    padding: 3px 10px;
-    border-radius: 20px;
+    padding: 3px 10px; border-radius: 20px;
     border: 1px solid rgba(250,204,21,0.15);
     flex-shrink: 0;
   }
 
   .link-icon {
-    position: relative;
-    z-index: 1;
-    width: 42px; height: 42px;
+    position: relative; z-index: 1;
+    width: 44px; height: 44px;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
-
-  .link-info {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .link-info h3 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 2px;
-    letter-spacing: 0.2px;
-  }
-
-  .link-info span {
-    font-size: 12px;
-    color: var(--text-dim);
-    letter-spacing: 0.3px;
-  }
-
+  .link-info { position: relative; z-index: 1; flex: 1; min-width: 0; }
+  .link-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .link-info span { font-size: 12px; color: var(--text-dim); }
   .link-arrow {
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1;
     color: var(--text-dim);
     transition: all 0.3s ease;
     flex-shrink: 0;
   }
+  .link-card:hover .link-arrow { color: var(--accent); transform: translateX(3px); }
 
-  .link-card:hover .link-arrow {
-    color: var(--accent);
-    transform: translateX(3px);
-  }
-
-  /* Icon themes */
   .icon-portfolio { background: rgba(250,204,21,0.1); color: var(--accent); }
   .icon-pricing   { background: rgba(37,99,235,0.15); color: var(--blue); }
   .icon-video     { background: rgba(250,204,21,0.1); color: var(--accent); }
@@ -309,9 +222,8 @@
   /* ── Footer ── */
   .footer {
     text-align: center;
-    padding: 0 24px 36px;
+    padding: 0 24px 40px;
   }
-
   .footer .tagline {
     font-size: 11px;
     color: var(--text-dim);
@@ -320,17 +232,60 @@
     opacity: 0.45;
   }
 
+  /* ══════════════════════════════
+     DESKTOP — wider, more spacious
+     ══════════════════════════════ */
+  @media (min-width: 768px) {
+    .hero-image {
+      max-width: 520px;
+      aspect-ratio: 4 / 3;
+    }
+    .hero-text h1 {
+      font-size: 32px;
+    }
+    .hero-text p {
+      font-size: 15px;
+    }
+    .social-dot {
+      width: 42px; height: 42px;
+    }
+    .links {
+      max-width: 560px;
+      gap: 14px;
+    }
+    .link-card {
+      padding: 22px 26px;
+    }
+    .link-info h3 { font-size: 16px; }
+    .link-info span { font-size: 13px; }
+  }
+
+  /* Extra-wide desktop */
+  @media (min-width: 1200px) {
+    .hero-image {
+      max-width: 480px;
+      aspect-ratio: 4 / 3;
+    }
+    .hero-text {
+      margin-top: -80px;
+    }
+    .hero-text h1 {
+      font-size: 36px;
+    }
+    .links {
+      max-width: 600px;
+    }
+  }
+
   /* ── Animations ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
   }
-
   .hero-image    { animation: fadeIn 0.8s ease both; }
   .hero-text     { animation: fadeUp 0.6s ease 0.2s both; }
   .social-row    { animation: fadeUp 0.5s ease 0.35s both; }
@@ -342,14 +297,10 @@
 
   /* grain */
   .grain {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0.02;
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 999; opacity: 0.02;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 180px;
+    background-repeat: repeat; background-size: 180px;
   }
 </style>
 </head>
@@ -359,9 +310,8 @@
 <div class="bg-overlay"></div>
 <div class="grain"></div>
 
-<div class="container">
+<div class="page">
 
-  <!-- ── Hero ── -->
   <div class="hero">
     <div class="hero-image">
       <img src="logo.jpg" alt="Deep Build Marketing">
@@ -371,13 +321,13 @@
       <p>品牌策略 | 内容创意 | 广告增长<br>一站式品牌叙事与增长解决方案</p>
       <div class="social-row">
         <a class="social-dot sd-fb" href="https://www.facebook.com/profile.php?id=61588071255831" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
         <a class="social-dot sd-ig" href="https://www.instagram.com/deepbuild_official" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
         <a class="social-dot sd-wa" href="https://wa.me/601169930903" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.104 1.519 5.832L0 24l6.336-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.98 0-3.818-.563-5.382-1.532l-.386-.23-3.997 1.048 1.067-3.898-.252-.4A9.789 9.789 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.104 1.519 5.832L0 24l6.336-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.98 0-3.818-.563-5.382-1.532l-.386-.23-3.997 1.048 1.067-3.898-.252-.4A9.789 9.789 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
         </a>
         <a class="social-dot sd-xhs" href="https://xhslink.com/m/7bGWhxXdJDq" target="_blank" rel="noopener" aria-label="Xiaohongshu">
           <img src="xhs-icon.png" alt="小红书">
@@ -386,7 +336,6 @@
     </div>
   </div>
 
-  <!-- ── Link Cards ── -->
   <div class="links">
     <a class="link-card" href="https://drive.google.com/file/d/1yUYp22Klznhv8qjd2qMdPfB5GS9dV2d1/view?usp=sharing" target="_blank" rel="noopener">
       <div class="link-icon icon-portfolio">
