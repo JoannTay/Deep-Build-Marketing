@@ -1,3 +1,253 @@
+
+Claude finished the response
+我现在要做名片，要做一个二维码，but now 我的价格表是github 上面的，然后我的link 全部是github的，我还没有空去弄域名，而且我想让客户点击来，可以给他们选择要看portfolio，menu，视频google drive，还有其他的，我想做一个页面合集器，因为我现在要赶着做名片
+
+15:21
+
+设计GitHub托管的链接聚合登陆页面供名片二维码使用。
+设计GitHub托管的链接聚合登陆页面供名片二维码使用。
+明白了！你需要一个类似 Linktree 的 link hub 页面，可以直接放在 GitHub Pages 上，QR code 扫进去就是一个漂亮的选择页面。
+
+Let me build this for you — 先看一下设计规范，然后直接出一个可以部署到 GitHub Pages 的页面。
+
+
+筹划了一站式链接聚合页面方案。
+筹划了一站式链接聚合页面方案。
+做好了！这是一个 dark luxury 风格的 link hub 页面，手机扫 QR code 进来会很好看。
+
+你只需要改 6 个 href 链接，搜索替换这些 placeholder：
+
+Placeholder	换成什么
+https://github.com/YOUR_USERNAME/portfolio	你的 portfolio 页面
+https://github.com/YOUR_USERNAME/pricing	你的价格表链接
+https://drive.google.com/YOUR_VIDEO_LINK	Google Drive 视频链接
+https://wa.me/60XXXXXXXXXX	你的 WhatsApp 号码
+Instagram / Facebook / TikTok 的 YOUR_HANDLE	你的社媒账号
+部署方式超简单：
+
+GitHub 建一个 repo（比如 deepbuild-links）
+把这个 index.html push 上去
+Settings → Pages → Deploy from main branch
+你会拿到一个 https://YOUR_USERNAME.github.io/deepbuild-links/ 的 URL
+用这个 URL 生成 QR code 印名片上就行了
+要不要我帮你加减 link 项目，或者调整颜色/品牌名？
+
+
+Index
+Code · HTML 
+你觉得直接去timetree做和直接upload进github 那个更好？
+
+15:38
+
+权衡了两种部署方案的实际优劣。
+权衡了两种部署方案的实际优劣。
+你说的应该是 Linktree 对吧？两个我直接给你结论：
+
+GitHub Pages 更适合你现在的情况，原因很简单：
+
+你已经在 GitHub 上了 — pricing、portfolio 都在那边，部署一个 index.html 对你来说 5 分钟搞定，零学习成本
+完全免费且无限制 — Linktree 免费版有品牌水印、analytics 要付费（Pro USD 9/月），GitHub Pages 全免费
+100% 可控 — 你刚才拿到的页面设计感远超 Linktree 免费模板，而且你随时可以改任何东西，不受平台限制
+专业感 — 客户扫码进来看到的是你自己品牌的页面，不是一个 Linktree 模板配上 "Made with Linktree" 的 footer
+Linktree 唯一的优势是如果你完全不想碰代码、纯 GUI 拖拽改链接。但你本身就在用 GitHub，这个优势对你不成立。
+
+所以 → 直接 push GitHub Pages，赶名片就对了。
+
+要我帮你把链接填好直接给你一个 ready-to-push 的版本吗？你把实际链接丢给我就行。
+
+https://www.instagram.com/deepbuild_official
+
+https://www.facebook.com/profile.php?id=61588071255831
+
+https://wa.me/601169930903
+
+Portfolio
+https://drive.google.com/file/d/1yUYp22Klznhv8qjd2qMdPfB5GS9dV2d1/view?usp=sharing
+
+Service & Pricing
+http://joanntay.github.io/Deep-Build-Menu/
+
+Video Showreel
+https://drive.google.com/drive/folders/1nQTTsPD9B6xZMYNkkoCuO-cN9_XUyJZa?usp=sharing
+
+Show more
+15:43
+
+Catalogued professional contact and portfolio links
+Catalogued professional contact and portfolio links
+所有链接都填好了，ready to deploy：
+
+Portfolio → Google Drive PDF
+Services & Pricing → joanntay.github.io/Deep-Build-Menu/
+Video Showreel → Google Drive 文件夹
+WhatsApp → wa.me/601169930903
+Instagram → @deepbuild_official
+Facebook → 底部圆形 icon
+接下来你只需要：
+
+GitHub 建 repo（比如 deepbuild-links）
+把这个 index.html push 上去
+Settings → Pages → 开启
+拿 https://joanntay.github.io/deepbuild-links/ 去生成 QR code → 印名片
+要调整什么随时说，赶名片优先！
+
+
+Index
+Code · HTML 
+WhatsApp Image 2026-05-04 at 3.31.42 PM.jpeg
+logo 换成这个
+
+16:53
+
+Logo替换已确认，部署时将正常显示。
+Logo替换已确认，部署时将正常显示。
+换好了！Logo 现在用你的冰山品牌图，tagline 也改成了 "Marketing · Branding · Design Studio"。
+
+部署时两个文件放同一个 repo 根目录就行：
+
+deepbuild-links/
+├── index.html
+└── logo.jpg
+预览里 logo 可能显示不出来（因为是相对路径引用），push 到 GitHub Pages 后就会正常显示。还有什么要改的吗？
+
+
+Index
+Code · HTML 
+
+Logo
+Image · JPG 
+1779353945396_image.png
+这是我们公司的配色，你看看怎么配比较好看
+
+16:59
+
+重新构想品牌配色方案以匹配公司视觉识别。
+重新构想品牌配色方案以匹配公司视觉识别。
+品牌色很适合做深海冰山的感觉！我用 深蓝做底 + 金黄做重点色 + 奶白做文字，跟你的 logo 完美搭配。
+
+
+精心设计了公司配色方案与品牌调性。
+精心设计了公司配色方案与品牌调性。
+配色换好了！整体是 深海蓝底 + 金黄点缀 的感觉，跟你冰山 logo 的氛围完全一致：
+
+背景 → 深海军蓝渐变（
+#0b1731）
+卡片 → 稍浅的深蓝（
+#112044）
+重点色 → 品牌金黄（
+#FACC15）— 用在 hover、logo glow、部分 icon
+文字 → 奶白（
+#FBFDF0）
+副色 → 品牌蓝（
+#2563EB）— 用在 pricing、social icon
+预览里 logo 看不到（相对路径），push 到 GitHub 后两个文件一起就完美了。还需要调什么吗？
+
+
+Index
+Code · HTML 
+
+Logo
+Image · JPG 
+1779354114174_image.png
+帮我把这个图放去背景，虚化，然后加多一个漂浮WhatsApp link，https://xhslink.com/m/7bGWhxXdJDq 加一个小红书的icon，可以吗？
+
+17:13
+
+验证了代码行号和链接图标位置。
+验证了代码行号和链接图标位置。
+All done！现在你的 GitHub repo 需要 3 个文件：
+
+deepbuild-links/
+├── index.html    ← 主页面
+├── logo.jpg      ← 品牌 logo
+└── bg.png        ← 冰山背景图
+新增内容：
+
+冰山背景 → 虚化 + 暗色渐变覆盖，不影响阅读但氛围感拉满
+小红书 RED → 红色 icon 卡片，链接到 xhslink.com/m/7bGWhxXdJDq
+漂浮 WhatsApp 按钮 → 右下角固定绿色圆按钮，带呼吸脉冲动画，滑到哪都能直接点
+卡片改成毛玻璃效果 → backdrop-filter: blur 让背景若隐若现
+预览里背景/logo 看不到（相对路径），三个文件一起 push 上 GitHub 就完美。要调什么吗？
+
+
+Index
+Code · HTML 
+
+Bg
+Image · PNG 
+
+Logo
+Image · JPG 
+WHATSAPP ,小红书， ig 都放在 和 fb 那个小icon 那边就好，然后帮我做一个Coming soon 是我公司的website
+
+17:38
+
+规划社交媒体整合与公司网站启动页面。
+规划社交媒体整合与公司网站启动页面。
+搞定！改动如下：
+
+主卡片（4个）：
+
+Portfolio
+Services & Pricing
+Video Showreel
+Official Website — 带金黄色 "COMING SOON" badge，不可点击，半透明状态
+底部小 icon 行（4个）： Facebook · Instagram · WhatsApp · 小红书 — 每个 hover 时会变成对应品牌色（蓝/粉/绿/红）
+
+浮动 WhatsApp 按钮已移除。三个文件一起 push 到 GitHub 就可以了，还有要调的吗？
+
+
+Index
+Code · HTML 
+
+Logo
+Image · JPG 
+
+Bg
+Image · PNG 
+1779356573898_image.png
+问你你能做到，头像的图直接扩成这样吗？然后fb ig xhs都放在上面变成小icon
+
+17:44
+
+规划了头像扩展为全宽横幅及社交图标重新定位。
+规划了头像扩展为全宽横幅及社交图标重新定位。
+明白了！把 logo 图扩成 hero banner 铺满顶部，social icons 移上去放在 header 区域。
+
+
+完成了布局调整，头像扩大并添加社交图标。
+完成了布局调整，头像扩大并添加社交图标。
+Done！现在的布局跟你截图的效果一样了：
+
+顶部 Hero 区：
+
+Logo 图铺满宽度（1:1 比例），底部渐变融入深蓝背景
+公司名 Deep Build Marketing
+中文 tagline：品牌策略 | 内容创意 | 广告增长
+四个小 social icons（FB · IG · WA · 小红书）紧贴在下方
+下方卡片区：
+
+Portfolio / Services & Pricing / Video Showreel / Website (Coming Soon)
+Footer 只留简洁的 tagline
+
+三个文件不变，push 上去就行。要调什么吗？
+
+
+Index
+Code · HTML 
+
+Logo
+Image · JPG 
+
+Bg
+Image · PNG 
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +270,9 @@
     --blue: #2563EB;
     --navy: #1E40AF;
   }
-
+ 
   * { margin:0; padding:0; box-sizing:border-box; }
-
+ 
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
@@ -32,86 +282,140 @@
     justify-content: center;
     overflow-x: hidden;
   }
-
-  /* ── Blurred background image ── */
+ 
+  /* ── Blurred background ── */
   .bg-layer {
     position: fixed;
     inset: 0;
     z-index: 0;
     background: url('bg.png') center top / cover no-repeat;
-    filter: blur(18px) brightness(0.35) saturate(1.2);
-    transform: scale(1.1);
+    filter: blur(22px) brightness(0.3) saturate(1.2);
+    transform: scale(1.15);
   }
-
-  /* Dark overlay for readability */
+ 
   .bg-overlay {
     position: fixed;
     inset: 0;
     z-index: 0;
     background: linear-gradient(
       180deg,
-      rgba(11,23,49,0.3) 0%,
-      rgba(11,23,49,0.55) 30%,
-      rgba(11,23,49,0.7) 60%,
-      rgba(11,23,49,0.85) 100%
+      rgba(11,23,49,0.2) 0%,
+      rgba(11,23,49,0.5) 35%,
+      rgba(11,23,49,0.75) 65%,
+      rgba(11,23,49,0.9) 100%
     );
   }
-
+ 
   .container {
     position: relative;
     z-index: 1;
     width: 100%;
     max-width: 420px;
-    padding: 48px 24px 100px;
+    padding: 0 0 60px;
   }
-
-  /* ── Header ── */
-  .brand {
+ 
+  /* ── Hero Header ── */
+  .hero {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
-
-  .logo-ring {
-    width: 100px; height: 100px;
-    border-radius: 16px;
-    border: 1px solid rgba(250,204,21,0.15);
-    margin: 0 auto 20px;
+ 
+  .hero-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    background: var(--surface-solid);
-    box-shadow: 0 0 50px rgba(250,204,21,0.08), 0 0 20px rgba(30,64,175,0.2);
+    position: relative;
   }
-
-  .logo-ring img {
+ 
+  .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
-
-  .brand h1 {
+ 
+  /* Fade bottom of image into background */
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(11,23,49,0.4) 40%,
+      rgba(11,23,49,0.85) 75%,
+      var(--bg) 100%
+    );
+    pointer-events: none;
+  }
+ 
+  .hero-text {
+    position: relative;
+    margin-top: -60px;
+    z-index: 2;
+    padding: 0 24px;
+  }
+ 
+  .hero-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     letter-spacing: 0.5px;
-    margin-bottom: 6px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    margin-bottom: 8px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    line-height: 1.3;
   }
-
-  .brand p {
+ 
+  .hero-text p {
     font-size: 13px;
     color: var(--text-dim);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    font-weight: 500;
+    letter-spacing: 0.4px;
+    line-height: 1.6;
+    margin-bottom: 16px;
   }
-
-  /* ── Link Cards (glassmorphism) ── */
+ 
+  /* ── Social icons row (in header) ── */
+  .social-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+ 
+  .social-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: rgba(251,253,240,0.6);
+    transition: all 0.3s ease;
+  }
+ 
+  .social-dot:hover {
+    transform: scale(1.12);
+  }
+ 
+  .social-dot.sd-fb:hover  { color: #1877f2; border-color: #1877f2; background: rgba(24,119,242,0.12); }
+  .social-dot.sd-ig:hover  { color: #e1306c; border-color: #e1306c; background: rgba(225,48,108,0.12); }
+  .social-dot.sd-wa:hover  { color: #25d366; border-color: #25d366; background: rgba(37,211,102,0.12); }
+  .social-dot.sd-xhs:hover { color: #ff2442; border-color: #ff2442; background: rgba(255,36,66,0.12); }
+ 
+  /* ── Link Cards ── */
   .links {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 0 20px;
     margin-bottom: 36px;
   }
-
+ 
   .link-card {
     display: flex;
     align-items: center;
@@ -128,7 +432,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .link-card::before {
     content: '';
     position: absolute;
@@ -137,18 +441,48 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-
+ 
   .link-card:hover, .link-card:active {
     background: var(--card-hover);
     border-color: rgba(250,204,21,0.25);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
   }
-
+ 
   .link-card:hover::before, .link-card:active::before {
     opacity: 1;
   }
-
+ 
+  /* Coming soon */
+  .link-card.coming-soon {
+    cursor: default;
+    opacity: 0.65;
+  }
+  .link-card.coming-soon:hover, .link-card.coming-soon:active {
+    transform: none;
+    box-shadow: none;
+    background: var(--surface);
+    border-color: var(--border);
+  }
+  .link-card.coming-soon:hover::before, .link-card.coming-soon:active::before {
+    opacity: 0;
+  }
+ 
+  .coming-badge {
+    position: relative;
+    z-index: 1;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(250,204,21,0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(250,204,21,0.15);
+    flex-shrink: 0;
+  }
+ 
   .link-icon {
     position: relative;
     z-index: 1;
@@ -159,27 +493,27 @@
     justify-content: center;
     flex-shrink: 0;
   }
-
+ 
   .link-info {
     position: relative;
     z-index: 1;
     flex: 1;
     min-width: 0;
   }
-
+ 
   .link-info h3 {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 2px;
     letter-spacing: 0.2px;
   }
-
+ 
   .link-info span {
     font-size: 12px;
     color: var(--text-dim);
     letter-spacing: 0.3px;
   }
-
+ 
   .link-arrow {
     position: relative;
     z-index: 1;
@@ -187,109 +521,53 @@
     transition: all 0.3s ease;
     flex-shrink: 0;
   }
-
+ 
   .link-card:hover .link-arrow {
     color: var(--accent);
     transform: translateX(3px);
   }
-
-  /* Icon color themes */
+ 
+  /* Icon themes */
   .icon-portfolio { background: rgba(250,204,21,0.1); color: var(--accent); }
   .icon-pricing   { background: rgba(37,99,235,0.15); color: var(--blue); }
   .icon-video     { background: rgba(250,204,21,0.1); color: var(--accent); }
-  .icon-whatsapp  { background: rgba(37,211,102,0.12); color: #25d366; }
-  .icon-social    { background: rgba(37,99,235,0.15); color: var(--blue); }
-  .icon-xhs       { background: rgba(255,48,64,0.12); color: #ff2442; }
-
+  .icon-website   { background: rgba(37,99,235,0.15); color: var(--blue); }
+ 
   /* ── Footer ── */
   .footer {
     text-align: center;
-    padding-top: 8px;
+    padding: 8px 24px 0;
   }
-
+ 
   .footer .tagline {
     font-size: 11px;
     color: var(--text-dim);
     letter-spacing: 3px;
     text-transform: uppercase;
-    opacity: 0.6;
+    opacity: 0.5;
   }
-
-  .social-row {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
-  .social-dot {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: var(--surface);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--text-dim);
-    font-size: 15px;
-    transition: all 0.3s ease;
-  }
-
-  .social-dot:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: scale(1.1);
-  }
-
-  /* ── Floating WhatsApp button ── */
-  .fab-wa {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 100;
-    width: 58px; height: 58px;
-    border-radius: 50%;
-    background: #25d366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: pulse-wa 2.5s infinite;
-  }
-
-  .fab-wa:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
-  }
-
-  @keyframes pulse-wa {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
-    50%      { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); }
-  }
-
-  /* ── Entrance animation ── */
+ 
+  /* ── Animations ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
-  .brand        { animation: fadeUp 0.6s ease both; }
-  .link-card:nth-child(1) { animation: fadeUp 0.5s ease 0.1s both; }
-  .link-card:nth-child(2) { animation: fadeUp 0.5s ease 0.18s both; }
-  .link-card:nth-child(3) { animation: fadeUp 0.5s ease 0.26s both; }
-  .link-card:nth-child(4) { animation: fadeUp 0.5s ease 0.34s both; }
-  .link-card:nth-child(5) { animation: fadeUp 0.5s ease 0.42s both; }
-  .link-card:nth-child(6) { animation: fadeUp 0.5s ease 0.50s both; }
-  .social-row   { animation: fadeUp 0.5s ease 0.56s both; }
-  .footer .tagline { animation: fadeUp 0.5s ease 0.62s both; }
-  .fab-wa       { animation: fadeUp 0.5s ease 0.7s both; }
-
-  /* grain texture overlay */
+ 
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+ 
+  .hero-image    { animation: fadeIn 0.8s ease both; }
+  .hero-text     { animation: fadeUp 0.6s ease 0.2s both; }
+  .social-row    { animation: fadeUp 0.5s ease 0.35s both; }
+  .link-card:nth-child(1) { animation: fadeUp 0.5s ease 0.4s both; }
+  .link-card:nth-child(2) { animation: fadeUp 0.5s ease 0.48s both; }
+  .link-card:nth-child(3) { animation: fadeUp 0.5s ease 0.56s both; }
+  .link-card:nth-child(4) { animation: fadeUp 0.5s ease 0.64s both; }
+  .footer .tagline { animation: fadeUp 0.5s ease 0.7s both; }
+ 
+  /* grain */
   .grain {
     position: fixed;
     inset: 0;
@@ -303,24 +581,43 @@
 </style>
 </head>
 <body>
-
-<!-- Background layers -->
+ 
 <div class="bg-layer"></div>
 <div class="bg-overlay"></div>
 <div class="grain"></div>
-
+ 
 <div class="container">
-
-  <!-- ── Brand Header ── -->
-  <div class="brand">
-    <div class="logo-ring"><img src="logo.jpg" alt="Deep Build Marketing"></div>
-    <h1>Deep Build Marketing</h1>
-    <p>Marketing · Branding · Design Studio</p>
+ 
+  <!-- ── Hero Header ── -->
+  <div class="hero">
+    <div class="hero-image">
+      <img src="logo.jpg" alt="Deep Build Marketing">
+    </div>
+    <div class="hero-text">
+      <h1>Deep Build Marketing</h1>
+      <p>品牌策略 | 内容创意 | 广告增长<br>一站式品牌叙事与增长解决方案</p>
+ 
+      <!-- Social icons -->
+      <div class="social-row">
+        <a class="social-dot sd-fb" href="https://www.facebook.com/profile.php?id=61588071255831" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a class="social-dot sd-ig" href="https://www.instagram.com/deepbuild_official" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-dot sd-wa" href="https://wa.me/601169930903" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.104 1.519 5.832L0 24l6.336-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.98 0-3.818-.563-5.382-1.532l-.386-.23-3.997 1.048 1.067-3.898-.252-.4A9.789 9.789 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
+        </a>
+        <a class="social-dot sd-xhs" href="https://xhslink.com/m/7bGWhxXdJDq" target="_blank" rel="noopener" aria-label="Xiaohongshu">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M2 2h8.5v7H7.25L10.5 20h-4L3.25 9H2V2zm11 0h4l3.25 11H22v7h-8.5v-7h3.25L13 2z"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
-
+ 
   <!-- ── Link Cards ── -->
   <div class="links">
-
+ 
     <!-- 1. Portfolio -->
     <a class="link-card" href="https://drive.google.com/file/d/1yUYp22Klznhv8qjd2qMdPfB5GS9dV2d1/view?usp=sharing" target="_blank" rel="noopener">
       <div class="link-icon icon-portfolio">
@@ -334,7 +631,7 @@
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       </div>
     </a>
-
+ 
     <!-- 2. Service & Pricing -->
     <a class="link-card" href="https://joanntay.github.io/Deep-Build-Menu/" target="_blank" rel="noopener">
       <div class="link-icon icon-pricing">
@@ -348,7 +645,7 @@
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       </div>
     </a>
-
+ 
     <!-- 3. Video Showreel -->
     <a class="link-card" href="https://drive.google.com/drive/folders/1nQTTsPD9B6xZMYNkkoCuO-cN9_XUyJZa?usp=sharing" target="_blank" rel="noopener">
       <div class="link-icon icon-video">
@@ -362,70 +659,28 @@
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       </div>
     </a>
-
-    <!-- 4. WhatsApp -->
-    <a class="link-card" href="https://wa.me/601169930903" target="_blank" rel="noopener">
-      <div class="link-icon icon-whatsapp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.104 1.519 5.832L0 24l6.336-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.98 0-3.818-.563-5.382-1.532l-.386-.23-3.997 1.048 1.067-3.898-.252-.4A9.789 9.789 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
+ 
+    <!-- 4. Website — Coming Soon -->
+    <div class="link-card coming-soon">
+      <div class="link-icon icon-website">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
       </div>
       <div class="link-info">
-        <h3>WhatsApp Us</h3>
-        <span>Chat for enquiries</span>
+        <h3>Official Website</h3>
+        <span>deepbuildmarketing.com</span>
       </div>
-      <div class="link-arrow">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-      </div>
-    </a>
-
-    <!-- 5. 小红书 -->
-    <a class="link-card" href="https://xhslink.com/m/7bGWhxXdJDq" target="_blank" rel="noopener">
-      <div class="link-icon icon-xhs">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.53 2.13a.5.5 0 00-.53.01L5.2 6.55a.5.5 0 00-.2.4v10.1a.5.5 0 00.25.43l6.5 3.75a.5.5 0 00.5 0l6.5-3.75a.5.5 0 00.25-.43V6.95a.5.5 0 00-.2-.4L12.53 2.13zM12 4.42l4.6 2.77L12 9.96 7.4 7.19 12 4.42zm-5.5 4.3l5 3v6.96l-5-2.88V8.72zm11 7.08l-5 2.88v-6.96l5-3v7.08z"/></svg>
-      </div>
-      <div class="link-info">
-        <h3>小红书 RED</h3>
-        <span>Follow us on Xiaohongshu</span>
-      </div>
-      <div class="link-arrow">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-      </div>
-    </a>
-
-    <!-- 6. Instagram -->
-    <a class="link-card" href="https://www.instagram.com/deepbuild_official" target="_blank" rel="noopener">
-      <div class="link-icon icon-social">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div class="link-info">
-        <h3>Instagram</h3>
-        <span>Follow our latest updates</span>
-      </div>
-      <div class="link-arrow">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-      </div>
-    </a>
-
+      <div class="coming-badge">Coming Soon</div>
+    </div>
+ 
   </div>
-
+ 
   <!-- ── Footer ── -->
   <div class="footer">
-    <div class="social-row">
-      <a class="social-dot" href="https://www.facebook.com/profile.php?id=61588071255831" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a class="social-dot" href="https://www.instagram.com/deepbuild_official" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-    </div>
     <div class="tagline">Marketing · Branding · Design</div>
   </div>
-
+ 
 </div>
-
-<!-- ── Floating WhatsApp FAB ── -->
-<a class="fab-wa" href="https://wa.me/601169930903" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.104 1.519 5.832L0 24l6.336-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.98 0-3.818-.563-5.382-1.532l-.386-.23-3.997 1.048 1.067-3.898-.252-.4A9.789 9.789 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
-</a>
-
+ 
 </body>
 </html>
+ 
